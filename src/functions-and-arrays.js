@@ -37,19 +37,42 @@ function sumNumbers(numbers) {
   numbers.forEach((number) => {
     count += number;
   });
+
   return count;
 }
 
-sumNumbers(numbers);
-
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(values) {
+  let count = 0;
+
+  values.forEach((value) => {
+    if (typeof value === "boolean") {
+      value = value ? 1 : 0;
+    } else if (typeof value === "string") {
+      value = value.length;
+    } else if (typeof value === "object" || typeof value === "array") {
+      throw new Error("Unsupported data typepresent in the array");
+    }
+
+    count += value;
+  });
+  return count;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+  let sum = sumNumbers(numbers);
+  sum /= numbers.length;
+  return sum;
+}
+
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -65,10 +88,38 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(words) {
+  let wordLength = [];
+
+  words.forEach((word) => {
+    wordLength.push(word.length);
+  });
+
+  return averageNumbers(wordLength);
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(values) {
+  let arrAvg = [];
+
+  if (values.length === 0) {
+    return null;
+  }
+
+  values.forEach((value) => {
+    if (typeof value === "boolean") {
+      value = value ? 1 : 0;
+    } else if (typeof value === "string") {
+      value = value.length;
+    } else if (typeof value === "object" || typeof value === "array") {
+      throw new Error("Unsupported data typepresent in the array");
+    }
+
+    arrAvg.push(value);
+  });
+
+  return averageNumbers(arrAvg);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -85,7 +136,14 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+  if (arr.length === 0) {
+    return null;
+  }
+
+  arr
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -99,7 +157,10 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+  else return arr.includes(word)? true:false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
