@@ -64,11 +64,10 @@ function sum(values) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
-  if (numbers.length === 0) {
-    return null;
-  }
-  let sum = sumNumbers(numbers);
-  sum /= numbers.length;
+  if (numbers.length === 0) return null;
+
+  let sum = sumNumbers(numbers) / numbers.length;
+  
   return sum;
 }
 
@@ -102,9 +101,7 @@ function averageWordLength(words) {
 function avg(values) {
   let arrAvg = [];
 
-  if (values.length === 0) {
-    return null;
-  }
+  if (values.length === 0) return null;
 
   values.forEach((value) => {
     if (typeof value === "boolean") {
@@ -138,11 +135,17 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
 
-  if (arr.length === 0) {
-    return null;
-  }
+  if (arr.length === 0) return null;
 
-  arr
+  //Yo haría solo esto
+  // let uniqueArr = [...new Set(arr)];
+
+  //Con index y filters
+
+  let uniqueArray = arr.filter((word , index) => {
+    return arr.indexOf(word) === index;
+  })
+  return uniqueArray;
 }
 
 // Iteration #6: Find elements
@@ -177,7 +180,15 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  if (array.length === 0) return 0;
+
+  let count = 0;
+
+  array.forEach((e)=> { e === word ? count +=1 : count+=0 })
+
+ return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
