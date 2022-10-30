@@ -21,11 +21,8 @@ const words = [
 ];
 
 function findLongestWord(arr) {
-  if (arr.length === 0) {
-    return null;
-  } else {
-    return arr.reduce((a, b) => (a.length < b.length ? b : a));
-  }
+  if (!arr.length) return null;
+  else return arr.reduce((a, b) => (a.length < b.length ? b : a));
 }
 
 // Iteration #3: Calculate the sum
@@ -64,11 +61,9 @@ function sum(values) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
-  if (numbers.length === 0) return null;
+  if (!numbers.length) return null;
 
-  let sum = sumNumbers(numbers) / numbers.length;
-  
-  return sum;
+  return sumNumbers(numbers) / numbers.length;
 }
 
 averageNumbers(numbersAvg);
@@ -101,7 +96,7 @@ function averageWordLength(words) {
 function avg(values) {
   let arrAvg = [];
 
-  if (values.length === 0) return null;
+  if (!values.length) return null;
 
   values.forEach((value) => {
     if (typeof value === "boolean") {
@@ -135,7 +130,7 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
 
-  if (arr.length === 0) return null;
+  if (!arr.length) return null;
 
   //Yo haría solo esto
   // let uniqueArr = [...new Set(arr)];
@@ -161,7 +156,7 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, word) {
-  if (arr.length === 0) return null;
+  if (!arr.length) return null;
   else return arr.includes(word)? true:false;
 }
 
@@ -181,13 +176,13 @@ const wordsCount = [
 ];
 
 function howManyTimes(array, word) {
-  if (array.length === 0) return 0;
+  if (!array.length) return 0;
 
   let count = 0;
 
   array.forEach((e)=> { e === word ? count +=1 : count+=0 })
 
- return count;
+  return count;
 }
 
 // Iteration #8: Bonus
